@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-vue
+  labels: 
+    app: hello-vue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-vue
+  template:
+    metadata:
+      labels:
+        app: hello-vue
+    spec:
+      containers:
+      - name: hello-vue
+        image: tako919191/hello-vue:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
